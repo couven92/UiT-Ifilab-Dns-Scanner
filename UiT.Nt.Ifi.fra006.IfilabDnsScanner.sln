@@ -8,6 +8,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{23E9802B-AAA2-4080-9A36-3FFED17EB861}"
 	ProjectSection(SolutionItems) = preProject
 		global.json = global.json
+		LICENSE = LICENSE
+		README.md = README.md
 	EndProjectSection
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "UiT.Nt.Ifi.fra006.IfilabDnsScanner", "src\UiT.Nt.Ifi.fra006.IfilabDnsScanner\UiT.Nt.Ifi.fra006.IfilabDnsScanner.xproj", "{0E494A13-9D40-4964-BEF5-F7A77360F957}"
