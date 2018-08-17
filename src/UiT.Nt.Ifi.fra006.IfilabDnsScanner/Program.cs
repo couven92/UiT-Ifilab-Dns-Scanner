@@ -160,15 +160,18 @@ namespace UiT.Nt.Ifi.fra006.IfilabDnsScanner
                     .Select(async hostname =>
                     {
                         IPHostEntry hostentry;
+                        SocketException socketExcept = null;
                         try { hostentry = await Dns.GetHostEntryAsync(hostname); }
-                        catch (SocketException socketExcept)
-                        { return Tuple.Create<string, IPHostEntry, SocketException, List<Task<Tuple<int, SocketException>>>>(hostname, null, socketExcept, null); }
+                        catch (SocketException se)
+                        { hostentry = null; socketExcept = se; }
+                        if ((hostentry?.AddressList?.Length ?? 0) < 1)
+                            return Tuple.Create<string, IPHostEntry, SocketException, List<Task<Tuple<int, SocketException>>>>(hostname, null, socketExcept, null);
                         return Tuple.Create(hostname, hostentry, (SocketException)null, hostTcpPortListValue.Select(async p =>
                         {
                             using (var hostTcpClient = new TcpClient())
                             {
                                 try { await hostTcpClient.ConnectAsync(hostentry.AddressList, p); }
-                                catch (SocketException socketExcept) { return Tuple.Create(p, socketExcept); }
+                                catch (SocketException se) { return Tuple.Create(p, se); }
                                 return Tuple.Create<int, SocketException>(p, null);
                             }
                         }).ToList());
@@ -182,7 +185,10 @@ namespace UiT.Nt.Ifi.fra006.IfilabDnsScanner
                         if (hostFailuresOption.HasValue())
                         {
                             var socketExcept = hostEntryTuple.Item3;
-                            Console.WriteLine("{0}: Socket error: {1}, {2}", hostName, socketExcept.SocketErrorCode, socketExcept.Message);
+                            if (socketExcept != null)
+                                Console.WriteLine("{0}: Socket error: {1}, {2}", hostName, socketExcept.SocketErrorCode, socketExcept.Message);
+                            else
+                                Console.WriteLine("{0}: DNS host entry query yieled no addresses.", hostName);
                         }
 
                         continue;
