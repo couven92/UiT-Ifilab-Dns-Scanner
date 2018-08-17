@@ -1,18 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2035
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{27521F18-C7C7-424F-9DB0-A4792CB8FC80}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{23E9802B-AAA2-4080-9A36-3FFED17EB861}"
 	ProjectSection(SolutionItems) = preProject
-		global.json = global.json
 		LICENSE = LICENSE
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "UiT.Nt.Ifi.fra006.IfilabDnsScanner", "src\UiT.Nt.Ifi.fra006.IfilabDnsScanner\UiT.Nt.Ifi.fra006.IfilabDnsScanner.xproj", "{0E494A13-9D40-4964-BEF5-F7A77360F957}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UiT.Nt.Ifi.fra006.IfilabDnsScanner", "src\UiT.Nt.Ifi.fra006.IfilabDnsScanner\UiT.Nt.Ifi.fra006.IfilabDnsScanner.csproj", "{0E494A13-9D40-4964-BEF5-F7A77360F957}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -30,5 +29,8 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{0E494A13-9D40-4964-BEF5-F7A77360F957} = {27521F18-C7C7-424F-9DB0-A4792CB8FC80}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8790F138-ADBB-4706-9A46-C8C3FB8EE575}
 	EndGlobalSection
 EndGlobal

@@ -1,4 +1,4 @@
-﻿using Microsoft.Extensions.CommandLineUtils;
+﻿using McMaster.Extensions.CommandLineUtils;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -128,8 +128,7 @@ namespace UiT.Nt.Ifi.fra006.IfilabDnsScanner
                     var hostTcpPortArray = new List<int>(hostTcpPortSplitStrings.Length);
                     foreach (var hostTcpPortString in hostTcpPortSplitStrings)
                     {
-                        int hostTcpPortValue;
-                        if (!int.TryParse(hostTcpPortString, NumberStyles.AllowLeadingWhite | NumberStyles.AllowThousands | NumberStyles.AllowTrailingWhite, CultureInfo.CurrentCulture, out hostTcpPortValue))
+                        if (!int.TryParse(hostTcpPortString, NumberStyles.AllowLeadingWhite | NumberStyles.AllowThousands | NumberStyles.AllowTrailingWhite, CultureInfo.CurrentCulture, out int hostTcpPortValue))
                         {
                             Console.WriteLine("Invalid TCP port number specified: {0}", hostTcpPortString);
                             Console.WriteLine("\tThe specified value could not be parsed as a non-negative 32-bit integer value.");
